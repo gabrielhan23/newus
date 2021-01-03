@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.right-image{
+ width: 50px;
+ height: 50px;
+}
+.nav-right{
+  width: 25%;
+}
+table{
+  width: 100%;
+  table-layout: fixed ;
+  height: 70%;
+}
+td{
+  padding-bottom: 5%;
+  padding-left: 1%;
+  height: 16.66%
+}
+.calendar-image{
+  margin: 0 30%;
+  width: 50px;
+ height: 50px;
+}
+.star{
+  padding-bottom: 1%;
+}
+.title{
+  width: 100vw;
+  height: 120px;
+  text-align: center;
+  color: #274e13;
+  background-color: #d9ead3ff;
+  font-size: 60;
+  font-family: 'Kalam';
+  padding-top: 20px;
+}

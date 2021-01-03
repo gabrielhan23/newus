@@ -1,0 +1,83 @@
+{% extends "template.html" %}
+
+{% block info %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/calendar.css')}}">
+<div class="d-none" id="days">
+  {% for day in days %}
+  <div>{{day.day.strftime("%d")}}</div>
+  {% endfor %}
+</div>
+{% endblock info %}
+{% block nav %}
+  <a href="#" class="nav-link"><img src="{{url_for('static', filename='images/heart bag.png')}}" class="right-image"></a>
+  <a href="/list" class="nav-link"><img src="{{url_for('static', filename='images/list.png')}}" class="right-image"></a>
+  
+
+{% endblock nav %}
+<img src="{{url_for('static', filename='images/heart bag.png')}}" class="right-image">
+<img src="{{url_for('static', filename='images/calendar.png')}}" class="right-image">
+{% block bodyContent %}
+<div class="title">- Janurary 2021 -</div>
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td id="01">1</td>
+    <td id="02">2</td>
+  </tr>
+  <tr>
+    <td id="03">3</td>
+    <td id="04">4</td>
+    <td id="05">5</td>
+    <td id="06">6</td>
+    <td id="07">7</td>
+    <td id="08">8</td>
+    <td id="09">9</td>
+  </tr>
+  <tr>
+    <td id="10">10</td>
+    <td id="11">11</td>
+    <td id="12">12</td>
+    <td id="13">13</td>
+    <td id="14">14</td>
+    <td id="15">15</td>
+    <td id="16">16</td>
+  </tr>
+  <tr>
+    <td id="17">17</td>
+    <td id="18">18</td>
+    <td id="19">19</td>
+    <td id="20">20</td>
+    <td id="21">21</td>
+    <td id="22">22</td>
+    <td id="23">23</td>
+  </tr>
+  <tr>
+    <td id="24">24</td>
+    <td id="25">25</td>
+    <td id="26">26</td>
+    <td id="27">27</td>
+    <td id="28">28</td>
+    <td id="29">29</td>
+    <td id="30">30</td>
+  </tr>
+  <tr>
+    <td id="31">31</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+{% endblock bodyContent %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='js/calendar.js')}}"></script>
+
+{% endblock scripts %}

@@ -1,0 +1,73 @@
+{% extends "template.html" %}
+
+{% block nav %}
+  <a href="#" class="nav-link"><img src="{{url_for('static', filename='images/heart bag.png')}}" class="right-image"></a>
+  <a href="/calendar" class="nav-link"><img src="{{url_for('static', filename='images/calendar.png')}}" class="right-image"></a>
+{% endblock nav %}
+
+{% block info %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/list.css')}}">
+<div class="d-none" id="goalList">
+  {% for goal in goalList %}
+  <div class="d-none">{{goal}}</div>
+  {% endfor %}
+</div>
+<div id="preUUID" class="d-none">{{preUUID}}</div>
+{% endblock info %}
+
+{% block bodyContent %}
+<h1 class="pl-4 pt-4">My Resolution List:</h1>
+<div id="list">
+  {% for listItem in listItems %}
+    <div class="list-element">
+      <label class="container">
+        {% if listItem.checked %}
+        <input type="checkbox" onclick="checkBox('{{listItem.uuid}}')" id="{{listItem.uuid}}-checked" checked="checked">
+        {% else %}
+        <input type="checkbox" onclick="checkBox('{{listItem.uuid}}')" id="{{listItem.uuid}}-checked">
+        {% endif %}
+        <span class="checkmark"></span>
+      </label>
+      <input type="text" id="{{listItem.uuid}}-input" value="{{listItem.name}}" class="list-input">
+      <a href="post/{{listItem.goalType}}"><div class="goal-type" id="{{listItem.uuid}}-goalType">{{listItem.goalType}}</div></a>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addtype" onclick="changeTypeFor('{{listItem.uuid}}-goalType')">Edit Type</button>
+    </div>
+  {% endfor %}
+</div>
+
+<div class="list-element" id="list-input">
+  <label class="container">
+    <input type="checkbox" id="checked" readonly>
+    <span class="checkmark"></span>
+  </label>
+  <input type="text" id="active">
+  <div id="goal-element" class="goal-type">None</div>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addtype" onclick="changeTypeFor('goal-element')" id="active-button">Edit Type</button>
+</div>
+
+<div class="modal fade" id="addtype" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Type</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h1 class="mb-3">Choose a Type:</h1>
+        <input placeholder="Search..." type="text" id="search" class="form-control form-control-lg search-icon">
+        <div id="typeList">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock bodyContent %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='js/list.js')}}"></script>
+{% endblock scripts %}

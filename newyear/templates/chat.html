@@ -1,0 +1,55 @@
+{% extends "template.html" %}
+
+{% block info %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/chat.css')}}">
+
+{% endblock info %}
+
+
+{% block nav %}
+  <a href="#" class="nav-link"><img src="{{url_for('static', filename='images/heart bag.png')}}" class="right-image"></a>
+  <a href="/calendar" class="nav-link"><img src="{{url_for('static', filename='images/calendar.png')}}" class="right-image"></a>
+  <a href="/list" class="nav-link"><img src="{{url_for('static', filename='images/list.png')}}" class="right-image"></a>
+  
+
+{% endblock nav %}
+
+{% block bodyContent %}
+<div class="post">
+  <h1>{{post.title}}</h1>
+  <p>{{post.post}}</p>
+</div>
+<div class="chat">
+
+  <div class="chat-hold">
+    <div class="chat-title">Chat Room for Post</div>
+    <div class="chat-right">
+      <a href="#" class="nav-link"><img src="{{url_for('static', filename='images/settings.png')}}" class="small-image"></a>
+      <a href="#" class="nav-link"><img src="{{url_for('static', filename='images/newtab.png')}}" class="medium-image"></a>
+    </div>
+  </div>
+
+  <div id="subposts">
+  {% for subpost in subposts %}
+    <div class="subpost">
+      <p>{{subpost.username}}: {{subpost.subpost}}</p>
+    </div>
+  {% endfor %}
+  </div>
+
+  <div class="send-bar">
+    <img src="{{url_for('static', filename='images/smiley face.png')}}" class="medium-image">
+
+    <input id="comment" placeholder="comment">
+
+    <img src="{{url_for('static', filename='images/airplane.png')}}" class="small-image" onclick="addComment()">
+  </div>
+</div>
+
+{% endblock bodyContent %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js""></script>
+<script src="{{url_for('static', filename='js/chat.js')}}"></script>
+
+{% endblock scripts %}

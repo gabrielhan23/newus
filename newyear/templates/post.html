@@ -1,0 +1,64 @@
+{% extends "template.html" %}
+
+{% block info %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/post.css')}}">
+
+{% endblock info %}
+{% block title %}
+<h1 id="page-title"></h1>
+{% endblock title %}
+{% block nav %}
+  <a href="#" class="nav-link"><img src="{{url_for('static', filename='images/heart bag.png')}}" class="right-image"></a>
+  <a href="/calendar" class="nav-link"><img src="{{url_for('static', filename='images/calendar.png')}}" class="right-image"></a>
+  <a href="/list" class="nav-link"><img src="{{url_for('static', filename='images/list.png')}}" class="right-image"></a>
+  
+
+{% endblock nav %}
+
+
+{% block bodyContent %}
+<div class="post-top">
+  <div>
+  <img src="{{url_for('static', filename='images/search.png')}}" class="round-image">
+  <input placeholder="Search this Forum ..." type="text" id="search" class="search-input">
+  </div>
+  <button class="btn btn-outline-info" data-toggle="modal" data-target="#addingpost" >Add Post</button>
+</div>
+<table id="posts">
+  {% for post in posts %}
+  <tr class="post">
+    <td class="td-user"><img src="{{url_for('static', filename='images/usericon.png')}}" class="right-image user-image"></td>
+    <td class="td-title"><a href="/chat/{{post.uuid}}"><h1 class="post-title"  id="{{post.uuid}}" alt="{{post.subposts|length}}">{{post.title}}</h1></a></td>
+    <td><p>{{post.subposts|length}} Answers</p></td>
+    <td><img src="{{url_for('static', filename='images/thumbs up.png')}}" class="right-image thumbs-image"></td>
+  </tr>
+  {% endfor %}
+</table>
+
+<div class="modal fade" id="addingpost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input id="title" placeholder="Title of Post" class="form-control form-control-lg mb-3">
+        <textarea id="body" placeholder="Post Content..." class="form-control form-control-lg"></textarea>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addPost()">Add Post</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock bodyContent %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='js/post.js')}}"></script>
+{% endblock scripts %}

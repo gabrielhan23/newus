@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+.post{
+  border-bottom: 1px grey solid;
+}
+
+.right-image{
+ width: 50px;
+ height: 50px;
+
+}
+.user-image{
+  border-radius: 50%;
+  border: 1px black solid;
+}
+#posts{
+  width: 95%;
+  margin: 0 2.5%;
+}
+td{
+  vertical-align: bottom;
+  padding: 10px;
+}
+.td-title{
+  width: 70%;
+}
+.td-user{
+  width: 7%;
+}
+.thumbs-image{
+  width: 25px;
+  height: 25px;
+  margin-bottom: 15px;
+}
+tr:nth-child(even) {
+  background-color: #d9ead3ff;
+}
+body{
+  background-color: rgb(244, 250, 242);
+}
+
+.search-input{
+  border: none;
+  outline: none;
+  border-bottom: 1px #b6d7a8ff solid;
+  width: 400px;
+  background-color: transparent;
+  margin-left: 10px;
+}
+.post-top{
+  display: flex;
+  justify-content: space-between;
+  padding:  20px 30px;
+}
+a{
+  color: #24570f
+}
+a:hover{
+  color: #24570f;
+}
+
+h1{
+  font-family: 'Kalam';
+  margin-top: 10px;
+}
+.round-image{
+  width: 20px;
+  height: 20px;
+
+}

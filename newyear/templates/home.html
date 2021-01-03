@@ -1,0 +1,68 @@
+{% extends "template.html" %}
+
+{% block info %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+{% endblock info %}
+
+{% block nav %}
+  <a href="#" class="nav-link">HOME</a>
+  <a href="#" class="nav-link">ABOUT</a>
+  <a href="#" class="nav-link">CONTACT</a>
+  <a href="signup" class="nav-link">JOIN TODAY</a>
+{% endblock nav %}
+
+{% block bodyContent %}
+<img src="{{url_for('static', filename='images/background.jpg')}}" class="main-image recolor">
+<div class="main-title">
+  <h1>CHEERS TO A BETTER US</h1>
+  <h1>IN A BETTER YEAR</h1>
+  <a href="#learn"><div class="learn-more" id="learn">Learn More</div></a>
+</div>
+
+<div class="about" id="about">
+  <img src="{{url_for('static', filename='images/about image.png')}}" class="about-pic">
+  <div class="about-group">
+    <div class="about-title-lines">
+      <div class="line"></div>
+      <div class="about-title">About</div>
+      <div class="line"></div>
+    </div>
+    <p>
+      Have you ever written up a New Year’s resolution, only to have it unresolved by the end of the year? New Us is a website dedicated to bringing its users closer to attaining their goals for the new year. Through this website, users can personalize resolutions and motivate one another to obtaining each goal through chat rooms and forums. 
+    </p>
+  </div>
+</div>
+<div class="circles">
+  <div class="circle circle1">
+    <h2 class="move-left">Saving Money</h2>
+    <img src="{{url_for('static', filename='images/coin.png')}}" class="circle-image">
+  </div>
+  <div class="circle circle2">
+    <h2>Weight Loss</h2>
+    <img src="{{url_for('static', filename='images/scale.png')}}" class="circle-image">
+  </div>
+  <div class="circle circle3">
+    <h2>Quit Smoking</h2>
+    <img src="{{url_for('static', filename='images/no smoking.png')}}" class="circle-image">
+  </div>
+  <div class="circle circle4">
+    <h2>Get Organized</h2>
+    <img src="{{url_for('static', filename='images/organizer.png')}}" class="circle-image">
+  </div>
+  <div class="circle circle5">
+    <h2>Eat Healthier</h2>
+    <img src="{{url_for('static', filename='images/eat healthier.png')}}" class="circle-image">
+  </div>
+  <div class="circle circle1 circle-back circle1-back"></div>
+  <div class="circle circle2 circle-back circle2-back"></div>
+  <div class="circle circle3 circle-back circle3-back"></div>
+  <div class="circle circle4 circle-back circle4-back"></div>
+  <div class="circle circle5 circle-back circle5-back"></div>
+</div>
+
+
+{% endblock bodyContent %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='js/home.js')}}"></script>
+{% endblock scripts %}
